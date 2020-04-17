@@ -33,7 +33,7 @@ public class PatientController {
             patients.addAttribute("patientPages", patientPage);
             patients.addAttribute("currentPage",page);
             patients.addAttribute("size",size);
-            patients.addAttribute("pages",new int[patientPage.getTotalPages()]);
+            patients.addAttribute("pagesNb",patientPage.getTotalPages());
             patients.addAttribute("keyword",keyword);
 
         return "patient";

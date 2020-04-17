@@ -69,12 +69,12 @@
                  <td th:text="${p.id}"></td>
                   <td th:text="${p.name}"></td>
                  <td th:text="${p.getBirth()}"></td>
-                 <td th:text="${p.isSick}?'Healthy':'Sick'"></td>
+                 <td th:text="${p.isSick}?'Sick':'Healthy'"></td>
                 <td><a class="btn btn-danger" th:href="@{removePatient(id=${p.id})}">Remove</a></td>
              </tr>
         </tbody>
     </table>
-    <nav aria-label="...">
+<!--    <nav aria-label="...">
         <ul class="pagination">
             <div th:each="p,status:${pages}">
                 <li>
@@ -82,9 +82,24 @@
                        th:href="@{patient(page=${status.index},size=${size},keyword=${keyword})}" th:text="${status.index}"></a></li>
             </div>
         </ul>
-    </nav>
-</div>
+    </nav>-->
+    <ul class="page">
 
+    </ul>
+</div>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+        let pagesNb =  /*[[${pagesNb}]]*/ 1;
+        let size = /*[[${size}]]*/ 2;
+        let keyword = /*[[${keyword}]]*/ '';
+        let url = '/patient?size='+size+'&keyword='+keyword+'&page=';
+        const pages = [];
+        for (let i = 0; i < pagesNb; i++) {
+        pages.push(url);
+    }
+
+    /*]]>*/
+</script>
 <script src="app.js" defer></script>
 </body>
 </html>
